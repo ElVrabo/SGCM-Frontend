@@ -1,0 +1,67 @@
+<div class="min-h-screen bg-blue-400 flex flex-col items-center justify-center p-8">
+  <h1 class="text-white text-4xl font-bold mb-10 text-center">
+    Sistema de Gestión de Citas Médicas
+  </h1>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl">
+    <!-- Card Paciente -->
+    <div
+      class="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center hover:scale-105 transition-transform"
+    >
+      <div class="text-blue-400 text-5xl mb-4">👤</div>
+      <h2 class="text-xl font-semibold text-gray-800 mb-2">Registrar Paciente</h2>
+      <p class="text-gray-600 text-center mb-4">Agrega nuevos pacientes al sistema.</p>
+      <button
+        class="bg-blue-400 text-white px-4 py-2 rounded-md hover:bg-blue-500 transition"
+        routerLink="/patients/create"
+      >
+        Ir
+      </button>
+    </div>
+
+    <!-- Card Doctor -->
+    <div
+      class="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center hover:scale-105 transition-transform"
+    >
+      <div class="text-blue-400 text-5xl mb-4">🧑‍⚕️</div>
+      <h2 class="text-xl font-semibold text-gray-800 mb-2">Registrar Doctor</h2>
+      <p class="text-gray-600 text-center mb-4">Agrega nuevos doctores al sistema.</p>
+      <button
+        class="bg-blue-400 text-white px-4 py-2 rounded-md hover:bg-blue-500 transition"
+        routerLink="/doctors/create"
+      >
+        Ir
+      </button>
+    </div>
+
+    <!-- Card Especialidad -->
+    <div
+      class="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center hover:scale-105 transition-transform"
+    >
+      <div class="text-blue-400 text-5xl mb-4">🩺</div>
+      <h2 class="text-xl font-semibold text-gray-800 mb-2">Registrar Especialidad</h2>
+      <p class="text-gray-600 text-center mb-4">Administra las especialidades médicas.</p>
+      <button
+        class="bg-blue-400 text-white px-4 py-2 rounded-md hover:bg-blue-500 transition"
+        routerLink="/specialties/create"
+      >
+        Ir
+      </button>
+    </div>
+
+    <!-- Card Consultorio -->
+    <div
+      class="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center hover:scale-105 transition-transform"
+    >
+      <div class="text-blue-400 text-5xl mb-4">🏥</div>
+      <h2 class="text-xl font-semibold text-gray-800 mb-2">Registrar Consultorio</h2>
+      <p class="text-gray-600 text-center mb-4">Agrega y gestiona consultorios médicos.</p>
+      <button
+        class="bg-blue-400 text-white px-4 py-2 rounded-md hover:bg-blue-500 transition"
+        routerLink="/consulting-rooms/create"
+      >
+        Ir
+      </button>
+    </div>
+  </div>
+</div>
