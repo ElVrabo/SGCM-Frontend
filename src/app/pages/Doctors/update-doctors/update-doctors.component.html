@@ -4,13 +4,7 @@
     (ngSubmit)="sendForm()"
     class=" p-8 w-full max-w-3xl space-y-6 border border-gray-100"
   >
-    @if(alertError){
-   <div class="mt-5 flex justify-center" >
-    <div class="flex justify-center items-center bg-red-500 w-150 h-10" >
-  <p class="text-white font-medium" >{{alertError}}</p>
- </div>
-   </div>
- }
+    <!-- Encabezado -->
     <div class="text-center">
       <h2 class="text-3xl font-bold text-blue-400"> Registrar nuevo doctor</h2>
       <p class="text-gray-500 text-sm">Completa los datos para agregar un nuevo médico al sistema.</p>
@@ -121,6 +115,8 @@
         </small>
       </div>
     </div>
+
+    <!-- Botones -->
     <div class="flex justify-between items-center pt-4">
       <a
         routerLink="/doctors"
@@ -138,3 +134,4 @@
     </div>
   </form>
 </div>
+

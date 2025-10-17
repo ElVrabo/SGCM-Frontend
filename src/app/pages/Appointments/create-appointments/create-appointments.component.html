@@ -1,0 +1,92 @@
+<div class="flex justify-center items-center min-h-screen bg-gray-100">
+  <form
+    [formGroup]="appointmentForm"
+    (ngSubmit)="sendForm()"
+    class="bg-white p-8 rounded-xl shadow-md w-full max-w-lg space-y-6"
+  >
+  @if(alertError){
+   <div class="mt-5 flex justify-center" >
+    <div class="flex justify-center items-center bg-red-500 w-150 h-10" >
+  <p class="text-white font-medium" >{{alertError}}</p>
+ </div>
+   </div>
+ }
+    <h2 class="text-2xl font-bold text-blue-400 text-center mb-6">
+      Crear nueva cita
+    </h2>
+
+    <!-- Motivo -->
+    <div>
+      <label class="block text-gray-700 font-semibold mb-2">Motivo</label>
+      <input
+        type="text"
+        formControlName="reason"
+        placeholder="Ej. Consulta general"
+        class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+      <small
+        *ngIf="appointmentForm.get('reason')?.invalid && appointmentForm.get('reason')?.touched"
+        class="text-red-500"
+      >El motivo es obligatorio</small>
+    </div>
+
+    <!-- Consultorio -->
+    <div>
+      <label class="block text-gray-700 font-semibold mb-2">Consultorio</label>
+      <select
+        formControlName="officeId"
+        class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      >
+        <option value="" disabled selected>Selecciona un consultorio</option>
+        <option *ngFor="let office of offices" [value]="office.officeId">
+          {{ office.officeName }}
+        </option>
+      </select>
+      <small
+        *ngIf="appointmentForm.get('officeId')?.invalid && appointmentForm.get('officeId')?.touched"
+        class="text-red-500"
+      >Debes seleccionar un consultorio</small>
+    </div>
+
+    <!-- Médico -->
+    <div>
+      <label class="block text-gray-700 font-semibold mb-2">Médico</label>
+      <select
+        formControlName="medicId"
+        class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      >
+        <option value="" disabled selected>Selecciona un médico</option>
+        <option *ngFor="let medic of medics" [value]="medic.medicId">
+          {{ medic.name }}
+        </option>
+      </select>
+      <small
+        *ngIf="appointmentForm.get('medicId')?.invalid && appointmentForm.get('medicId')?.touched"
+        class="text-red-500"
+      >Debes seleccionar un médico</small>
+    </div>
+
+    <!-- Fecha -->
+    <div>
+      <label class="block text-gray-700 font-semibold mb-2">Fecha</label>
+      <input
+        type="datetime-local"
+        formControlName="date"
+        class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+      <small
+        *ngIf="appointmentForm.get('date')?.invalid && appointmentForm.get('date')?.touched"
+        class="text-red-500"
+      >La fecha es obligatoria</small>
+    </div>
+
+    <!-- Botón -->
+    <button
+      type="submit"
+      [disabled]="appointmentForm.invalid"
+      class="w-full bg-blue-400 text-white font-semibold py-2 rounded-lg hover:bg-blue-500 transition-colors"
+    >
+      Crear Cita
+    </button>
+  </form>
+</div>

@@ -1,0 +1,41 @@
+<div class="flex justify-center items-center min-h-screen bg-gray-100 px-4">
+  <div
+    class="p-8 max-w-2xl w-full text-center border border-gray-200"
+  >
+    <!-- Imagen del doctor -->
+    <div class="flex justify-center mb-6">
+      <img
+        [src]="'https://localhost:7212' + doctor.pictureUrl"
+        alt="{{ doctor.name }}"
+        class="h-40 w-40 object-cover rounded-full border-4 border-blue-400 shadow-md"
+      />
+    </div>
+
+    <!-- Nombre -->
+    <h2 class="text-3xl font-bold text-blue-400 mb-2 capitalize">
+      {{ doctor.name }} {{ doctor.lastName }}
+    </h2>
+
+    <p class="text-gray-600 mb-4 text-lg font-medium">
+      Especialidad: <span class="text-blue-400">{{ doctor.specialtyName }}</span>
+    </p>
+
+    <!-- Información -->
+    <div class="text-left space-y-3 mb-6">
+      <p><strong>ID:</strong> {{ doctor.medicId }}</p>
+      <p><strong>Email:</strong> {{ doctor.email }}</p>
+      <p><strong>Teléfono:</strong> {{ doctor.phone }}</p>
+      <p><strong>Consultorio asignado:</strong> {{ doctor.officeName }}</p>
+    </div>
+
+    <!-- Botón de regresar -->
+    <div class="flex justify-center">
+      <a
+        routerLink="/doctors"
+        class="bg-blue-400 hover:bg-blue-500 text-white font-semibold px-6 py-2 rounded-lg transition duration-200 shadow-md"
+      >
+        ← Regresar a la lista
+      </a>
+    </div>
+  </div>
+</div>

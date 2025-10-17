@@ -18,6 +18,7 @@ doctorForm!:FormGroup
 selectedFile!: File;
 specialities:Specialty[]=[]
 offices : Office[]=[]
+alertError :string = ""
 constructor(
   private doctorService : DoctorService,
   private specialtyService : SpecialtyService,
@@ -68,7 +69,12 @@ sendForm(){
       console.log("El doctor se registro con exito")
        this.router.navigate(['/doctors'])
     },
-    error :(err) => console.log('ocurrio un error', err)
+    error :(err) => {
+      this.alertError = err.error.message
+      setTimeout(()=>{
+        this.alertError = ""
+      },5000)
+    }
   })
 }
 }

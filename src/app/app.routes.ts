@@ -5,6 +5,10 @@ import { ListPatientsComponent } from './pages/Patients/list-patients/list-patie
 import { ListSpecialitiesComponent } from './pages/Specialities/list-specialities/list-specialities.component';
 import { ListOfficesComponent } from './pages/Offices/list-offices/list-offices.component';
 import { CreateDoctorsComponent } from './pages/Doctors/create-doctors/create-doctors.component';
+import { CreateSpecialitiesComponent } from './pages/Specialities/create-specialities/create-specialities.component';
+import { DetailDoctorsComponent } from './pages/Doctors/detail-doctors/detail-doctors.component';
+import { ListAppointmentsComponent } from './pages/Appointments/list-appointments/list-appointments.component';
+import { CreateAppointmentsComponent } from './pages/Appointments/create-appointments/create-appointments.component';
 
 export const routes: Routes = [{
     path:"home",
@@ -19,11 +23,27 @@ path:"doctors/create",
 component:CreateDoctorsComponent
 },
 {
+path:"doctor/detail/:id",
+component:DetailDoctorsComponent
+},
+{
     path:"offices",
     component:ListOfficesComponent
 },
    {
     path:"specialities",
     component:ListSpecialitiesComponent
+   },
+   {
+    path:"specialities/create",
+    component:CreateSpecialitiesComponent
+   },
+   {
+    path:"appointments",
+    component:ListAppointmentsComponent
+   },
+   {
+    path:"appointments/create",
+    component:CreateAppointmentsComponent
    }
 ];

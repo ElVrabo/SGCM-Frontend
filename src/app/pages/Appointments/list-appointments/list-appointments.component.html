@@ -1,0 +1,58 @@
+<div class="p-4 mt-20">
+  <div class="flex justify-around items-center">
+    <h2 class="text-2xl font-bold text-black mb-4 text-center">
+      Lista de citas
+    </h2>
+
+    <a
+      routerLink="/appointments/create"
+      class="bg-blue-400 text-white rounded text-center px-4 py-2 inline-flex items-center h-10 gap-2"
+    >
+      <span>Nueva cita</span>
+      <span class="text-xl font-bold">+</span>
+    </a>
+  </div>
+
+  <div class="overflow-x-auto mt-5">
+    <table class="min-w-full bg-white text-black rounded-xl overflow-hidden shadow-lg">
+      <thead class="bg-white text-blue-400">
+        <tr>
+          <th class="py-3 px-4 text-left">#</th>
+          <th class="py-3 px-4 text-left">Motivo cita</th>
+          <th class="py-3 px-4 text-left">Consultorio asignado</th>
+          <th class="py-3 px-4 text-left">Doctor asignado</th>
+           <th class="py-3 px-4 text-left">Fecha a atender</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        @for (a of appointments; track a.appointmentId) {
+        <tr class="border-b border-gray-200 hover:bg-gray-100 transition-colors">
+          <td class="py-3 px-4">{{ a.appointmentId }}</td>
+          <td class="py-3 px-4 font-semibold">{{ a.reason }}</td>
+          <td class="py-3 px-4">{{ a.officeName }}</td>
+          <td class="py-3 px-4">{{ a.medicName }}</td>
+           <td class="py-3 px-4">{{ a.date | date:'medium' }}</td>
+          <td class="py-3 px-4 text-center flex gap-2 justify-center">
+            <!-- Botón para ver detalles -->
+            <!-- <a
+              [routerLink]="['/doctor/detail', doctor.medicId]"
+              class="bg-blue-400 hover:bg-blue-500 text-white px-3 py-1 rounded-lg transition-colors"
+            >
+              Ver detalles
+            </a> -->
+
+            <!-- Botón para eliminar -->
+            <!-- <button
+              (click)="deleteDoctor(doctor.medicId)"
+              class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-lg transition-colors"
+            >
+              Eliminar
+            </button> -->
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

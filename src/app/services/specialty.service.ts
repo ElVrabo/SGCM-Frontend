@@ -13,4 +13,10 @@ export class SpecialtyService {
   public getSpecialities():Observable<Specialty[]>{
     return this.http.get<Specialty[]>("https://localhost:7212/api/v1/specialities")
   }
+  public createSpecialitie(formData:Specialty):Observable<any>{
+    return this.http.post<any>("https://localhost:7212/api/v1/specialities",formData)
+  }
+  public DeleteSpecielitie(id:number):Observable<any>{
+    return this.http.delete<any>(`https://localhost:7212/api/v1/specialities/${id}`)
+  }
 }

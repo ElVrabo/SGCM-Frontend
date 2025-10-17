@@ -1,6 +1,6 @@
 export interface Specialty{
-    specialityId:number,
+    specialityId?:number,
     name:string,
     description:string,
-    nMedics :number
+    nMedics?:number
 }
