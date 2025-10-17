@@ -1,6 +1,65 @@
-<p>Lista de doctores!</p>
-<ul>
-    @for(doctor of doctors; track doctor ){
-        <li>{{doctor}}</li>
-    }
-</ul>
+<div class="p-4 mt-20">
+ <div class="flex justify-around align-center" >
+    <h2 class="text-2xl font-bold text-black mb-4 text-center">
+    Lista de doctores
+  </h2>
+      <a
+  routerLink="/doctors/create"
+  class="bg-blue-400 text-white rounded text-center px-4 py-2 inline-flex items-center h-10 gap-2"
+>
+  <span>Nuevo Producto</span>
+  <span class="text-xl font-bold">+</span>
+</a>
+
+
+ </div>
+
+  <div class="overflow-x-auto mt-5">
+    <table class="min-w-full bg-white text-black rounded-xl overflow-hidden shadow-lg">
+      <thead class="bg-white text-blue-400">
+        <tr>
+          <th class="py-3 px-4 text-left">#</th>
+          <th class="py-3 px-4 text-left">Nombre</th>
+          <th class="py-3 px-4 text-left">Apellido</th>
+          <th class="py-3 px-4 text-left">Especialidad</th>
+          <th class="py-3 px-4 text-left">Consultorio</th>
+          <th class="py-3 px-4 text-left">Teléfono</th>
+          <th class="py-3 px-4 text-left">Email</th>
+          <th class="py-3 px-4 text-left">Foto</th>
+          <th class="py-3 px-4 text-center">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (doctor of doctors; track doctor.medicId) {
+        <tr class="border-b border-gray-200 hover:bg-gray-100 transition-colors">
+          <td class="py-3 px-4">{{ doctor.medicId }}</td>
+          <td class="py-3 px-4 font-semibold">{{ doctor.name }}</td>
+          <td class="py-3 px-4">{{ doctor.lastName }}</td>
+          <td class="py-3 px-4 text-blue-400">{{ doctor.specialtyName }}</td>
+          <td class="py-3 px-4">{{ doctor.officeName }}</td>
+          <td class="py-3 px-4">{{ doctor.phone }}</td>
+          <td class="py-3 px-4">{{ doctor.email }}</td>
+          <td class="py-3 px-4">
+                          <img [src]="'https://localhost:7212'+doctor.pictureUrl" alt="{{doctor.pictureUrl}}" class="h-20 w-25" />
+
+          </td>
+          <td class="py-3 px-4 text-center">
+            <!-- <button
+              
+              class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-lg mr-2 transition-colors"
+            >
+              Editar -->
+            <!-- </button> -->
+            <button
+              (click)="deleteDoctor(doctor.medicId)"
+              class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-lg transition-colors"
+            >
+              Eliminar
+            </button>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
